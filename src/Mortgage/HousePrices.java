@@ -3,6 +3,9 @@ package Mortgage;
 // HousePrices class inin Users dan miras aldığını unutmalayım.
 
 public class HousePrices extends Users {
+    public HousePrices(String username, String whichCondition, String houseType, int roomCount, int downPayment, int longTerm, StatesTax statesTax) {
+        super(username, whichCondition, houseType, roomCount, downPayment, longTerm, statesTax);
+    }
 
     /*
 
