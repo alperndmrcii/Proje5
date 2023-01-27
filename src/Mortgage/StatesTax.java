@@ -9,8 +9,9 @@ public enum StatesTax {
 
     NEWYORK(20),
     NEWJERSEY(15),
-    FLORIDA(5),
-    OHIO(12);
+    OHIO(12),
+    FLORIDA(5);
+
 
     //  Buradaki vergilerin amaci evin toplam ücretinin üzerine eklenecek vergilerdir.
 

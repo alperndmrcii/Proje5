@@ -14,7 +14,7 @@ public class HousePrices extends Users {
     //--------------------------------------------------------------
     // -> Attributes
     //--------------------------------------------------------------
-    private int price;
+    private int price=0;
 
     public int getPrice() {
         return price;
@@ -26,7 +26,6 @@ public class HousePrices extends Users {
 
     public HousePrices(String username, String whichCondition, String houseType, int roomCount, int downPayment, int longTerm, StatesTax statesTax) {
         super(username, whichCondition, houseType, roomCount, downPayment, longTerm, statesTax);
-        setPrice(price);
         roomCountToPrice();
         conditionToPrice();
         houseTypeToPrice();
@@ -80,39 +79,40 @@ public class HousePrices extends Users {
     public void roomCountToPrice() {
         switch (getRoomCount()) {
             case 0:
-                price += 10000;
+                this.price += 10000;break;
 
             case 1:
-                price += 20000;
+                this.price += 20000;break;
 
             case 2:
-                price += 30000;
+                this.price += 30000;break;
 
             case 3:
-                price += 40000;
+                this.price += 40000;break;
 
             case 4:
-                price += 50000;
+                this.price += 50000;break;
 
             case 5:
-                price += 60000;
+                this.price += 60000;break;
 
             default:
                 System.out.println("Odalarımız 0 ile 5 arasındadır.");
+
 
 
         }
     }
 
     public void conditionToPrice() {
-        if (getWhichCondition().equals("new"))
-            price += 50000;
-        else if (getWhichCondition().equals("Like new"))
-            price += 40000;
-        else if (getWhichCondition().equals("old"))
-            price += 30000;
-        else if (getWhichCondition().equals("renew required"))
-            price += 15000;
+        if (getWhichCondition().equalsIgnoreCase("new"))
+            this.price += 50000;
+        else if (getWhichCondition().equalsIgnoreCase("Like New"))
+            this.price += 40000;
+        else if (getWhichCondition().equalsIgnoreCase("Old"))
+            this.price += 30000;
+        else if (getWhichCondition().equalsIgnoreCase("renew required"))
+            this.price += 15000;
     }
 
 
@@ -145,12 +145,12 @@ public class HousePrices extends Users {
     //      - Eğer ki evin tipi "house" ise ücreti 40000 artacak
 
     public void houseTypeToPrice() {
-        if (getHouseType().equals("apartment"))
-            price += 20000;
-        else if (getWhichCondition().equals("condo"))
-            price += 30000;
-        else if (getWhichCondition().equals("house"))
-            price += 40000;
+        if (getHouseType().equalsIgnoreCase("apartment"))
+            this.price += 20000;
+        else if (getWhichCondition().equalsIgnoreCase("condo"))
+            this.price += 30000;
+        else if (getWhichCondition().equalsIgnoreCase("house"))
+            this.price += 40000;
     }
 
 
@@ -163,18 +163,18 @@ public class HousePrices extends Users {
     //   -Return tipi yok
     //   -Parametre olmayacak
 
-    //   vergiyi bulmanın formulü = (toplam para * vergi miktari) * 100
+    //   vergiyi bulmanın formulü = (toplam para * vergi miktari) / 100
 
 
     public void calculateTax()
     {
-        price+=getPriceTotal()*getStatesTax().getTax()*100;
+        this.price+=(getPriceTotal()*getStatesTax().getTax())/100;
     }
         //  Ücreti döndüren basit bir getter method yazalim cünkü price attribute un access i private.
 
 
         public int getPriceTotal () {
-            return price;
+            return this.price;
         }
 
 
@@ -187,7 +187,7 @@ public class HousePrices extends Users {
         // peşinati ana paradan cikarmayi unutmayalim... (peşinat = downPayment)
 
         public int getPriceEachMonth () {
-            return (price - getDownPayment()) / getLongTerm();
+            return (this.price - getDownPayment()) / getLongTerm();
         }
     }
 

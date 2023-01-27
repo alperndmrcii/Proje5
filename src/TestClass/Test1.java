@@ -39,12 +39,12 @@ public class Test1 {
     public void test1(){
 
         HousePrices housePrices= new HousePrices("Fernando" , "new" ,  "Apartment" ,3 ,40000 ,30 , StatesTax.OHIO);
-
+// 78.400
         Assert.assertEquals("Fernando",housePrices.getUsername());
 
         int total = housePrices.getPriceTotal();
         int eachMonth = housePrices.getPriceEachMonth();
-
+        System.out.println(housePrices.getPriceTotal());
         Assert.assertEquals("Result should be 123200 but your result is " + total, 123200, total);
         Assert.assertEquals("Result should be 2773 but your result is " +eachMonth, 2773, eachMonth);
 
@@ -60,8 +60,8 @@ public class Test1 {
         int total = housePrices.getPriceTotal();
         int eachMonth = housePrices.getPriceEachMonth();
 
-        Assert.assertEquals("Result should be 120000 but your result is " + total, 168000, total);
-        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 3933, eachMonth);
+        Assert.assertEquals("Result should be 120000 but your result is " + total, 120000, total);
+        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 2333, eachMonth);
 
     }
 
@@ -69,7 +69,7 @@ public class Test1 {
     public void test3(){
 
         HousePrices housePrices= new HousePrices("Emily" , "Old" ,  "condo" ,4,30000 ,36 , StatesTax.FLORIDA);
-
+    // 84.000 // 117.000
         Assert.assertEquals("Emily",housePrices.getUsername());
 
         int total = housePrices.getPriceTotal();
@@ -85,7 +85,7 @@ public class Test1 {
     public void test4(){
 
         HousePrices housePrices= new HousePrices("Rinda" , "Renew Required" ,  "condo" ,1,50000 ,35 , StatesTax.NEWJERSEY);
-
+//68.000
         Assert.assertEquals("Rinda",housePrices.getUsername());
 
         int total = housePrices.getPriceTotal();
