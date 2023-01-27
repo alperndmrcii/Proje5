@@ -2,20 +2,19 @@ package Mortgage;
 
 public enum StatesTax {
 
-    /*
 
-        StatesTax class i bir "enum class"tir ve bizim tax (vergi) lerimi belirleyecektir.
+    //  StatesTax class i bir "enum class"tir ve bizim tax (vergi) lerimi belirleyecektir.
 
-        4 adet state (bölge) imiz var ve her birinin vergisi birbirinden farkli olacak.
+    //  4 adet state (bölge) imiz var ve her birinin vergisi birbirinden farkli olacak.
 
-        Newyork -> 20
-        NewJersey -> 15
-        Florida -> 5
-        Ohio -> 12
+    NEWYORK(20),
+    NEWJERSEY(15),
+    FLORIDA(5),
+    OHIO(12);
 
-        Buradaki vergilerin amaci evin toplam ücretinin üzerine eklenecek vergilerdir.
+    //  Buradaki vergilerin amaci evin toplam ücretinin üzerine eklenecek vergilerdir.
 
-     */
+
 
     /*
 
@@ -37,11 +36,26 @@ public enum StatesTax {
     3- "tax" adinda oluşturduğumuz bu attribute icin sadece getter method tanımlayalım ki bu methodu her bir ev ücreti
     icin hesaplama yaparken kullanabilelim.
 
-     */
 
-    //--------------------------------------------------------------
+     */
+    private int tax;
+
+    StatesTax(int tax) {
+        setTax(tax);
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+
+    public void setTax(int tax) {
+        this.tax = tax;
+    }
+//--------------------------------------------------------------
     // -> Attributes
     //--------------------------------------------------------------
+
 
     //--------------------------------------------------------------
     // -> Constructor
@@ -50,7 +64,6 @@ public enum StatesTax {
     //--------------------------------------------------------------
     // -> Method
     //--------------------------------------------------------------
-
 
 
 }
