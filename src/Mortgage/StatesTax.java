@@ -41,17 +41,18 @@ public enum StatesTax {
     private int tax;
 
     StatesTax(int tax) {
-        setTax(tax);
+        this.tax=tax;
     }
+
 
     public int getTax() {
         return tax;
     }
+}
 
 
-    public void setTax(int tax) {
-        this.tax = tax;
-    }
+
+
 //--------------------------------------------------------------
     // -> Attributes
     //--------------------------------------------------------------
@@ -66,7 +67,7 @@ public enum StatesTax {
     //--------------------------------------------------------------
 
 
-}
+
 
 
 

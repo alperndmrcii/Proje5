@@ -24,10 +24,13 @@ public class HousePrices extends Users {
         this.price = price;
     }
 
-    public HousePrices(String username, String whichCondition, String houseType, int roomCount, int downPayment, int longTerm, StatesTax statesTax, int price) {
+    public HousePrices(String username, String whichCondition, String houseType, int roomCount, int downPayment, int longTerm, StatesTax statesTax) {
         super(username, whichCondition, houseType, roomCount, downPayment, longTerm, statesTax);
         setPrice(price);
-
+        roomCountToPrice();
+        conditionToPrice();
+        houseTypeToPrice();
+        calculateTax();
 
     }
 
@@ -104,7 +107,7 @@ public class HousePrices extends Users {
     public void conditionToPrice() {
         if (getWhichCondition().equals("new"))
             price += 50000;
-        else if (getWhichCondition().equals("like new"))
+        else if (getWhichCondition().equals("Like new"))
             price += 40000;
         else if (getWhichCondition().equals("old"))
             price += 30000;
@@ -163,40 +166,31 @@ public class HousePrices extends Users {
     //   vergiyi bulmanın formulü = (toplam para * vergi miktari) * 100
 
 
-
     public void calculateTax()
     {
+        price+=getPriceTotal()*getStatesTax().getTax()*100;
+    }
+        //  Ücreti döndüren basit bir getter method yazalim cünkü price attribute un access i private.
 
+
+        public int getPriceTotal () {
+            return price;
+        }
+
+
+        // Toplam ay başına düşen ücreti hesaplamak icin bir method yazmalıyız. Adina getPriceEachMonth() diyebiliriz.
+        // -Return tipi int olmalıdır.
+        // -Parametreye gerek yok.
+
+
+        // Ay başına düşen toplam ücret hesaplanirken, int longTerm yani vade süresine bölmeliyiz, tabi onden önce de
+        // peşinati ana paradan cikarmayi unutmayalim... (peşinat = downPayment)
+
+        public int getPriceEachMonth () {
+            return (price - getDownPayment()) / getLongTerm();
+        }
     }
 
-
-    //  Ücreti döndüren basit bir getter method yazalim cünkü price attribute un access i private.
-
-
-    public int getPriceTotal()
-    {
-        return price;
-    }
-
-
-
-
-
-
-
-     // Toplam ay başına düşen ücreti hesaplamak icin bir method yazmalıyız. Adina getPriceEachMonth() diyebiliriz.
-     // -Return tipi int olmalıdır.
-     // -Parametreye gerek yok.
-
-
-     // Ay başına düşen toplam ücret hesaplanirken, int longTerm yani vade süresine bölmeliyiz, tabi onden önce de
-     // peşinati ana paradan cikarmayi unutmayalim... (peşinat = downPayment)
-
-    public int getPriceEachMonth()
-    {
-      return (price-getDownPayment())/getLongTerm();
-    }
-    }
 
 
 

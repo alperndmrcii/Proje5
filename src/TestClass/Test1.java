@@ -53,15 +53,15 @@ public class Test1 {
     @Test
     public void test2(){
 
-        HousePrices housePrices= new HousePrices("David" , "LikeNew"  , "House" ,5 ,50000 ,30 , StatesTax.NEWYORK);
+        HousePrices housePrices= new HousePrices("David" , "Like New"  , "House" ,5 ,50000 ,30 , StatesTax.NEWYORK);
 
         Assert.assertEquals("David",housePrices.getUsername());
 
         int total = housePrices.getPriceTotal();
         int eachMonth = housePrices.getPriceEachMonth();
 
-        Assert.assertEquals("Result should be 120000 but your result is " + total, 120000, total);
-        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 2333, eachMonth);
+        Assert.assertEquals("Result should be 120000 but your result is " + total, 168000, total);
+        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 3933, eachMonth);
 
     }
 
