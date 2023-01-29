@@ -60,8 +60,8 @@ public class Test1 {
         int total = housePrices.getPriceTotal();
         int eachMonth = housePrices.getPriceEachMonth();
 
-        Assert.assertEquals("Result should be 120000 but your result is " + total, 120000, total);
-        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 2333, eachMonth);
+        Assert.assertEquals("Result should be 120000 but your result is " + total, 168000, total);
+        Assert.assertEquals("Result should be 2333 but your result is " +eachMonth, 3933, eachMonth);
 
     }
 

@@ -26,9 +26,9 @@ public class HousePrices extends Users {
 
     public HousePrices(String username, String whichCondition, String houseType, int roomCount, int downPayment, int longTerm, StatesTax statesTax) {
         super(username, whichCondition, houseType, roomCount, downPayment, longTerm, statesTax);
-        roomCountToPrice();
         conditionToPrice();
         houseTypeToPrice();
+        roomCountToPrice();
         calculateTax();
 
     }
@@ -105,7 +105,7 @@ public class HousePrices extends Users {
     }
 
     public void conditionToPrice() {
-        if (getWhichCondition().equalsIgnoreCase("new"))
+        if (getWhichCondition().equalsIgnoreCase("New"))
             this.price += 50000;
         else if (getWhichCondition().equalsIgnoreCase("Like New"))
             this.price += 40000;
@@ -147,9 +147,9 @@ public class HousePrices extends Users {
     public void houseTypeToPrice() {
         if (getHouseType().equalsIgnoreCase("apartment"))
             this.price += 20000;
-        else if (getWhichCondition().equalsIgnoreCase("condo"))
+        else if (getHouseType().equalsIgnoreCase("condo"))
             this.price += 30000;
-        else if (getWhichCondition().equalsIgnoreCase("house"))
+        else if (getHouseType().equalsIgnoreCase("House"))
             this.price += 40000;
     }
 
